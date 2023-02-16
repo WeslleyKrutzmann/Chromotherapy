@@ -136,7 +136,7 @@ namespace Chromotherapy
         {
             try
             {
-            await this.Dispatcher.InvokeAsync(() => this.gdRoot.Background = new SolidColorBrush(Color.FromRgb(r.Value, g.Value, b.Value)));
+                await this.Dispatcher.InvokeAsync(() => this.gdRoot.Background = new SolidColorBrush(Color.FromRgb(r.Value, g.Value, b.Value)));
             }
             catch
             {
