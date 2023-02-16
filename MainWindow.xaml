@@ -21,7 +21,8 @@
                 Height="30"
                 Width="120"
                 Content="Iniciar"
-                Click="btnStart_Click"/>
+                Click="btnStart_Click"
+                Visibility="Collapsed"/>
 
     </Grid>
 </Window>

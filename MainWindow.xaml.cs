@@ -49,6 +49,8 @@ namespace Chromotherapy
 
         private void StartChangingColors()
         {
+            this.btnStart.Visibility = Visibility.Collapsed;
+
             this.R = new Channel(0);
             this.G = new Channel(0);
             this.B = new Channel(0);
@@ -89,6 +91,7 @@ namespace Chromotherapy
             this.Dispatcher.Invoke(() =>
             {
                 this.gdRoot.Background = Brushes.Black;
+                this.btnStart.Visibility = Visibility.Visible;
             });
         }
 
@@ -119,7 +122,7 @@ namespace Chromotherapy
                 }
             }
 
-            if(this.Channels.Count > 0)
+            if (this.Channels.Count > 0)
             {
                 this.ChangeColorAsync(this.Channels.Dequeue());
             }
@@ -131,7 +134,14 @@ namespace Chromotherapy
 
         private async void UpdateBackground(Channel r, Channel g, Channel b)
         {
+            try
+            {
             await this.Dispatcher.InvokeAsync(() => this.gdRoot.Background = new SolidColorBrush(Color.FromRgb(r.Value, g.Value, b.Value)));
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
