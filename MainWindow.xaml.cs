@@ -49,7 +49,10 @@ namespace Chromotherapy
 
         private void StartChangingColors()
         {
-            this.btnStart.Visibility = Visibility.Collapsed;
+            this.Dispatcher.Invoke(() => 
+            {
+                this.btnStart.Visibility = Visibility.Collapsed;
+            });
 
             this.R = new Channel(0);
             this.G = new Channel(0);
